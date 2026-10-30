@@ -1,0 +1,4 @@
+# Reuse measured passing locations for the two failing paths.
+set_inst_assignment {u_serial_reset/release_pipe_reg[0]} {location = x21y49z0;}
+set_inst_assignment {u_ph1p35_324_ddr_wrapper/u_ddr2/ph1p_ddrmc_wrapper/ph1p_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_mdl_cal_wrapper/mdl_cal[0]$u_ddrphy_mdl_cal/mdl_tck_reg[3]} {location = x5y13z3;}
+set_inst_assignment {u_ph1p35_324_ddr_wrapper/u_ddr2/ph1p_ddrmc_wrapper/ph1p_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_fiu_wrapper/init_rdqsn_reg[17:0][1]} {location = x6y11z3;}

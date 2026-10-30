@@ -1,0 +1,83 @@
+{
+  "status": "qualified",
+  "phase": "compiled",
+  "started_at": "2026-10-30T13:03:08.489069+08:00",
+  "flash_programmed": false,
+  "retained_cel": true,
+  "retained_micro_motion": true,
+  "adpt_enabled": false,
+  "placement_seed": 2,
+  "area": {
+    "slices": 21160,
+    "capacity": 21216,
+    "percent": 99.74,
+    "eram": {
+      "used": 100,
+      "capacity": 108
+    },
+    "dsp": {
+      "used": 18,
+      "capacity": 40
+    },
+    "IO": {
+      "used": 87,
+      "capacity": 160
+    }
+  },
+  "timing": {
+    "SWNS": 0.005,
+    "STNS": 0.0,
+    "HWNS": 0.02,
+    "HTNS": 0.0
+  },
+  "ddr_audit": {
+    "ddr_calibration_crossing.rpt": {
+      "statistics": {
+        "Max": {
+          "wns_ns": 0.094,
+          "tns_ns": 0.0,
+          "violating_endpoints": 0,
+          "total_endpoints": 115,
+          "paths_analyzed": 115
+        },
+        "Min": {
+          "wns_ns": 0.025,
+          "tns_ns": 0.0,
+          "violating_endpoints": 0,
+          "total_endpoints": 115,
+          "paths_analyzed": 115
+        }
+      }
+    },
+    "ddr_calibration_reverse.rpt": {
+      "statistics": {
+        "Max": {
+          "wns_ns": 0.005,
+          "tns_ns": 0.0,
+          "violating_endpoints": 0,
+          "total_endpoints": 43,
+          "paths_analyzed": 43
+        },
+        "Min": {
+          "wns_ns": 0.513,
+          "tns_ns": 0.0,
+          "violating_endpoints": 0,
+          "total_endpoints": 43,
+          "paths_analyzed": 43
+        }
+      }
+    }
+  },
+  "bitstream": "build/contest_board_system.bit",
+  "finished_at": "2026-10-30T13:27:36.629996+08:00",
+  "signature": "0x3922",
+  "median_enabled": false,
+  "base_arrival_feedback": true,
+  "live_readonly_tx_trace": true,
+  "mode_bitmap": "0x1f0db7",
+  "original_reference_mode": 14,
+  "raw_calibration_switch": "SW2/B4",
+  "removed_score_and_margin_rejection": true,
+  "change_note": "在0x3920基础上增加RAW模式内SW2原始/校准切换；绕过黑电平、空间色彩增益和白平衡应用，保留解拜耳，原始模式保持曝光和白平衡控制值；按源帧绑定模式与DDR元数据。保留CEL、微运动、识别跟踪和机械臂，厂商IP和原有时序约束保留，仅新增SW2到首级同步寄存器的异步输入约束。",
+  "hardware_validation": "pending"
+}

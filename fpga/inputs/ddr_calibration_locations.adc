@@ -1,0 +1,5 @@
+# Four gate cells from qualified 11-mode route; no clock/timing exceptions.
+set_inst_assignment {u_ph1p35_324_ddr_wrapper/u_ddr2/ph1p_ddrmc_wrapper/ph1p_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_mdl_cal_wrapper/mdl_cal[0]$u_ddrphy_mdl_cal/mdl_tck_reg[7]} {location = x4y8z5;}
+set_inst_assignment {u_ph1p35_324_ddr_wrapper/u_ddr2/ph1p_ddrmc_wrapper/ph1p_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_mdl_cal_wrapper/mdl_cal[1]$u_ddrphy_mdl_cal/mdl_tck_reg[6]} {location = x2y8z5;}
+set_inst_assignment {u_ph1p35_324_ddr_wrapper/u_ddr2/ph1p_ddrmc_wrapper/ph1p_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_fiu_wrapper/init_rdqsn_reg[17:0][2]} {location = x10y6z0;}
+set_inst_assignment {u_ph1p35_324_ddr_wrapper/u_ddr2/ph1p_ddrmc_wrapper/ph1p_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_fiu_wrapper/init_rdqsp_reg[17:0][10]} {location = x4y6z2;}

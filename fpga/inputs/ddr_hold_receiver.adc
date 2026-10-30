@@ -1,0 +1,2 @@
+# Separate the DDR hold receiver from its launching register.
+set_inst_assignment {u_ph1p35_324_ddr_wrapper/u_ddr2/ph1p_ddrmc_wrapper/ph1p_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_fiu_wrapper/init_rdqsp_r_reg[10]} {location = x4y14z6;}

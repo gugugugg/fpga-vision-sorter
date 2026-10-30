@@ -1,0 +1,3 @@
+# Receiver locations from qualified 0x3919, for the two measured setup violations.
+set_inst_assignment {u_ph1p35_324_ddr_wrapper/u_ddr2/ph1p_ddrmc_wrapper/ph1p_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_fiu_wrapper/init_rdqsn_reg[17:0][5]} {location = x9y10z1;}
+set_inst_assignment {u_ph1p35_324_ddr_wrapper/u_ddr2/ph1p_ddrmc_wrapper/ph1p_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_fiu_wrapper/init_wdq_reg[17:0][9]} {location = x5y11z1;}

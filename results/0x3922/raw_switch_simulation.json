@@ -1,0 +1,4 @@
+{
+  "frontend": "PASS frontend: original RAW10 exact, corrected arithmetic unchanged, frame-held switch, SOF/TLAST/gaps aligned",
+  "core": "PASS core: original RGB exact, AWB retained in normal mode, AE held and resumed, common output alignment"
+}

@@ -1,0 +1,722 @@
+[
+  {
+    "target": "fpga/inputs/ae_set.v",
+    "reference_path": "inputs/ae_set.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/uiisp_beta/ae_set.v"
+  },
+  {
+    "target": "fpga/inputs/audio_arc_calculate.v",
+    "reference_path": "inputs/audio_arc_calculate.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/audio_arc_calculate.v"
+  },
+  {
+    "target": "fpga/inputs/awb.v",
+    "reference_path": "inputs/awb.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/awb.v"
+  },
+  {
+    "target": "fpga/inputs/bilinear_interpolation.v",
+    "reference_path": "inputs/bilinear_interpolation.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/bilinear_interpolation.v"
+  },
+  {
+    "target": "fpga/inputs/byte_aligner.enc.v",
+    "reference_path": "inputs/byte_aligner.enc.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/mipi_dphy_rx/byte_aligner.enc.v"
+  },
+  {
+    "target": "fpga/inputs/byte_aligner_wrapper.enc.sv",
+    "reference_path": "inputs/byte_aligner_wrapper.enc.sv",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/mipi_dphy_rx/byte_aligner_wrapper.enc.sv"
+  },
+  {
+    "target": "fpga/inputs/channel_aligner.enc.v",
+    "reference_path": "inputs/channel_aligner.enc.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/mipi_dphy_rx/channel_aligner.enc.v"
+  },
+  {
+    "target": "fpga/inputs/channel_aligner_wrapper.enc.sv",
+    "reference_path": "inputs/channel_aligner_wrapper.enc.sv",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/mipi_dphy_rx/channel_aligner_wrapper.enc.sv"
+  },
+  {
+    "target": "fpga/inputs/csi_unpacket_2lane.v",
+    "reference_path": "inputs/csi_unpacket_2lane.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/csi_unpacket_2lane.v"
+  },
+  {
+    "target": "fpga/inputs/data128_96.v",
+    "reference_path": "inputs/data128_96.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/data128_96/data128_96.v"
+  },
+  {
+    "target": "fpga/inputs/data96_128.v",
+    "reference_path": "inputs/data96_128.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/data96_128/data96_128.v"
+  },
+  {
+    "target": "fpga/inputs/demosaic.v",
+    "reference_path": "inputs/demosaic.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/demosaic.v"
+  },
+  {
+    "target": "fpga/inputs/hdmi_1_4b_transmitter_core_wrapper.enc.v",
+    "reference_path": "inputs/hdmi_1_4b_transmitter_core_wrapper.enc.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/hdmi_1_4b_transmitter_core_wrapper.enc.v"
+  },
+  {
+    "target": "fpga/inputs/hdmi_mixer.v",
+    "reference_path": "inputs/hdmi_mixer.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/hdmi_mixer.v"
+  },
+  {
+    "target": "fpga/inputs/hdmi_phy_warpper.v",
+    "reference_path": "inputs/hdmi_phy_warpper.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/hdmi_phy_warpper.v"
+  },
+  {
+    "target": "fpga/inputs/hdmi_tx.v",
+    "reference_path": "inputs/hdmi_tx.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/hdmi_tx.v"
+  },
+  {
+    "target": "fpga/inputs/hs_detect.enc.v",
+    "reference_path": "inputs/hs_detect.enc.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/mipi_dphy_rx/hs_detect.enc.v"
+  },
+  {
+    "target": "fpga/inputs/I2S_receiver.v",
+    "reference_path": "inputs/I2S_receiver.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/I2S_receiver.v"
+  },
+  {
+    "target": "fpga/inputs/isp_top.v",
+    "reference_path": "inputs/isp_top.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/isp_top.v"
+  },
+  {
+    "target": "fpga/inputs/key_remove_shakes.v",
+    "reference_path": "inputs/key_remove_shakes.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/key_remove_shakes.v"
+  },
+  {
+    "target": "fpga/inputs/lane_lvds_10_1.v",
+    "reference_path": "inputs/lane_lvds_10_1.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/lane_lvds_10_1.v"
+  },
+  {
+    "target": "fpga/inputs/line_buffer_demosaic.v",
+    "reference_path": "inputs/line_buffer_demosaic.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/line_buffer_demosaic.v"
+  },
+  {
+    "target": "fpga/inputs/mc_to_user_interface.v",
+    "reference_path": "inputs/mc_to_user_interface.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/mc_to_user_interface.v"
+  },
+  {
+    "target": "fpga/inputs/mipi_dphy_rx_ph1p_mipiio_wrapper.sv",
+    "reference_path": "inputs/mipi_dphy_rx_ph1p_mipiio_wrapper.sv",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/mipi_dphy_rx/mipi_dphy_rx_ph1p_mipiio_wrapper.sv"
+  },
+  {
+    "target": "fpga/inputs/mipi_to_raw_converter.v",
+    "reference_path": "inputs/mipi_to_raw_converter.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/mipi_to_raw_converter.v"
+  },
+  {
+    "target": "fpga/inputs/ph1p35_324_ddr_wrapper.v",
+    "reference_path": "inputs/ph1p35_324_ddr_wrapper.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ph1p35_324_ddr_wrapper.v"
+  },
+  {
+    "target": "fpga/inputs/ph1p_mipiio_rx_wrapper.v",
+    "reference_path": "inputs/ph1p_mipiio_rx_wrapper.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/mipi_dphy_rx/ph1p_mipiio_rx_wrapper.v"
+  },
+  {
+    "target": "fpga/inputs/raw10_unpacket_2lane.v",
+    "reference_path": "inputs/raw10_unpacket_2lane.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/raw10_unpacket_2lane.v"
+  },
+  {
+    "target": "fpga/inputs/raw_matrix_3x3_buffer.v",
+    "reference_path": "inputs/raw_matrix_3x3_buffer.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/raw_matrix_3x3_buffer.v"
+  },
+  {
+    "target": "fpga/inputs/SC520GainTbl.v",
+    "reference_path": "inputs/SC520GainTbl.v",
+    "official_path": "official_2026/sc520cs_camera/SC520GainTbl.v"
+  },
+  {
+    "target": "fpga/inputs/signal_delay.v",
+    "reference_path": "inputs/signal_delay.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/signal_delay.v"
+  },
+  {
+    "target": "fpga/inputs/uial2axis.v",
+    "reference_path": "inputs/uial2axis.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/uial2axis.v"
+  },
+  {
+    "target": "fpga/inputs/uics520reg_720p60.v",
+    "reference_path": "inputs/uics520reg_720p60.v",
+    "official_path": "official_2026/sc520cs_camera/uics520reg_720p60.v"
+  },
+  {
+    "target": "fpga/inputs/uics520regAE.v",
+    "reference_path": "inputs/uics520regAE.v",
+    "official_path": "official_2026/sc520cs_camera/uics520regAE.v"
+  },
+  {
+    "target": "fpga/inputs/uii2c.v",
+    "reference_path": "inputs/uii2c.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/uics500_cfg/uii2c.v"
+  },
+  {
+    "target": "fpga/inputs/uivtc.v",
+    "reference_path": "inputs/uivtc.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/vtc/uivtc.v"
+  },
+  {
+    "target": "fpga/inputs/video_in.v",
+    "reference_path": "inputs/video_in.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/video_in.v"
+  },
+  {
+    "target": "fpga/inputs/video_out.v",
+    "reference_path": "inputs/video_out.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/video_out.v"
+  },
+  {
+    "target": "fpga/inputs/zhenghe.v",
+    "reference_path": "inputs/zhenghe.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/zhenghe.v"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_awb_delay_signal/.m_params_blk_mem_gen_awb_delay_signal.txt",
+    "reference_path": "vendor_ip/blk_mem_gen_awb_delay_signal/.m_params_blk_mem_gen_awb_delay_signal.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/blk_mem_gen_awb_delay_signal/.m_params_blk_mem_gen_awb_delay_signal.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_awb_delay_signal/.params_blk_mem_gen_awb_delay_signal.txt",
+    "reference_path": "vendor_ip/blk_mem_gen_awb_delay_signal/.params_blk_mem_gen_awb_delay_signal.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/blk_mem_gen_awb_delay_signal/.params_blk_mem_gen_awb_delay_signal.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_awb_delay_signal/.ports_blk_mem_gen_awb_delay_signal.txt",
+    "reference_path": "vendor_ip/blk_mem_gen_awb_delay_signal/.ports_blk_mem_gen_awb_delay_signal.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/blk_mem_gen_awb_delay_signal/.ports_blk_mem_gen_awb_delay_signal.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_awb_delay_signal/blk_mem_gen_awb_delay_signal.v",
+    "reference_path": "vendor_ip/blk_mem_gen_awb_delay_signal/blk_mem_gen_awb_delay_signal.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/blk_mem_gen_awb_delay_signal/blk_mem_gen_awb_delay_signal.v"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_awb_delay_signal/blk_mem_gen_awb_delay_signal.xml",
+    "reference_path": "vendor_ip/blk_mem_gen_awb_delay_signal/blk_mem_gen_awb_delay_signal.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/blk_mem_gen_awb_delay_signal/blk_mem_gen_awb_delay_signal.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_awb_delay_signal/Design.xml",
+    "reference_path": "vendor_ip/blk_mem_gen_awb_delay_signal/Design.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/blk_mem_gen_awb_delay_signal/Design.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_awb_delay_signal/DesignConfiguration.xml",
+    "reference_path": "vendor_ip/blk_mem_gen_awb_delay_signal/DesignConfiguration.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/blk_mem_gen_awb_delay_signal/DesignConfiguration.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_awb_delay_signal/ram_f84573da5ab5.v",
+    "reference_path": "vendor_ip/blk_mem_gen_awb_delay_signal/ram_f84573da5ab5.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/blk_mem_gen_awb_delay_signal/ram_f84573da5ab5.v"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_demosaic/.m_params_blk_mem_gen_demosaic.txt",
+    "reference_path": "vendor_ip/blk_mem_gen_demosaic/.m_params_blk_mem_gen_demosaic.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_demosaic/.m_params_blk_mem_gen_demosaic.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_demosaic/.params_blk_mem_gen_demosaic.txt",
+    "reference_path": "vendor_ip/blk_mem_gen_demosaic/.params_blk_mem_gen_demosaic.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_demosaic/.params_blk_mem_gen_demosaic.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_demosaic/.ports_blk_mem_gen_demosaic.txt",
+    "reference_path": "vendor_ip/blk_mem_gen_demosaic/.ports_blk_mem_gen_demosaic.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_demosaic/.ports_blk_mem_gen_demosaic.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_demosaic/blk_mem_gen_demosaic.v",
+    "reference_path": "vendor_ip/blk_mem_gen_demosaic/blk_mem_gen_demosaic.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_demosaic/blk_mem_gen_demosaic.v"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_demosaic/blk_mem_gen_demosaic.xml",
+    "reference_path": "vendor_ip/blk_mem_gen_demosaic/blk_mem_gen_demosaic.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_demosaic/blk_mem_gen_demosaic.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_demosaic/Design.xml",
+    "reference_path": "vendor_ip/blk_mem_gen_demosaic/Design.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_demosaic/Design.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_demosaic/DesignConfiguration.xml",
+    "reference_path": "vendor_ip/blk_mem_gen_demosaic/DesignConfiguration.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_demosaic/DesignConfiguration.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_demosaic/RTL/include/define.v",
+    "reference_path": "vendor_ip/blk_mem_gen_demosaic/RTL/include/define.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_demosaic/RTL/include/define.v"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_demosaic/RTL/ram_c36c2ca3b3a7.v",
+    "reference_path": "vendor_ip/blk_mem_gen_demosaic/RTL/ram_c36c2ca3b3a7.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_demosaic/RTL/ram_c36c2ca3b3a7.v"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_zhenghe/.m_params_blk_mem_gen_zhenghe.txt",
+    "reference_path": "vendor_ip/blk_mem_gen_zhenghe/.m_params_blk_mem_gen_zhenghe.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_zhenghe/.m_params_blk_mem_gen_zhenghe.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_zhenghe/.params_blk_mem_gen_zhenghe.txt",
+    "reference_path": "vendor_ip/blk_mem_gen_zhenghe/.params_blk_mem_gen_zhenghe.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_zhenghe/.params_blk_mem_gen_zhenghe.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_zhenghe/.ports_blk_mem_gen_zhenghe.txt",
+    "reference_path": "vendor_ip/blk_mem_gen_zhenghe/.ports_blk_mem_gen_zhenghe.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_zhenghe/.ports_blk_mem_gen_zhenghe.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_zhenghe/blk_mem_gen_zhenghe.v",
+    "reference_path": "vendor_ip/blk_mem_gen_zhenghe/blk_mem_gen_zhenghe.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_zhenghe/blk_mem_gen_zhenghe.v"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_zhenghe/blk_mem_gen_zhenghe.xml",
+    "reference_path": "vendor_ip/blk_mem_gen_zhenghe/blk_mem_gen_zhenghe.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_zhenghe/blk_mem_gen_zhenghe.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_zhenghe/Design.xml",
+    "reference_path": "vendor_ip/blk_mem_gen_zhenghe/Design.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_zhenghe/Design.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_zhenghe/DesignConfiguration.xml",
+    "reference_path": "vendor_ip/blk_mem_gen_zhenghe/DesignConfiguration.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_zhenghe/DesignConfiguration.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_zhenghe/RTL/include/define.v",
+    "reference_path": "vendor_ip/blk_mem_gen_zhenghe/RTL/include/define.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_zhenghe/RTL/include/define.v"
+  },
+  {
+    "target": "fpga/vendor_ip/blk_mem_gen_zhenghe/RTL/ram_d32970204f32.v",
+    "reference_path": "vendor_ip/blk_mem_gen_zhenghe/RTL/ram_d32970204f32.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/isp/demosaic_4x_2_0/blk_mem_gen_zhenghe/RTL/ram_d32970204f32.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/.m_params_ddr2.txt",
+    "reference_path": "vendor_ip/ddr2/.m_params_ddr2.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/.m_params_ddr2.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/.params_ddr2.txt",
+    "reference_path": "vendor_ip/ddr2/.params_ddr2.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/.params_ddr2.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/.ports_ddr2.txt",
+    "reference_path": "vendor_ip/ddr2/.ports_ddr2.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/.ports_ddr2.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/ddr2.v",
+    "reference_path": "vendor_ip/ddr2/ddr2.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/ddr2.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/ddr2.xml",
+    "reference_path": "vendor_ip/ddr2/ddr2.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/ddr2.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/Design.xml",
+    "reference_path": "vendor_ip/ddr2/Design.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/Design.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/DesignConfiguration.xml",
+    "reference_path": "vendor_ip/ddr2/DesignConfiguration.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/DesignConfiguration.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/ph1p_ddrmc_wrapper_63f4ac254419.v",
+    "reference_path": "vendor_ip/ddr2/ph1p_ddrmc_wrapper_63f4ac254419.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/ph1p_ddrmc_wrapper_63f4ac254419.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/sim/fileset/fileset_mis.f",
+    "reference_path": "vendor_ip/ddr2/sim/fileset/fileset_mis.f",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/sim/fileset/fileset_mis.f"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/adc/ddr2.adc",
+    "reference_path": "vendor_ip/ddr2/src/adc/ddr2.adc",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/adc/ddr2.adc"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/clk/ph1p_ddrphy_clk_top.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/clk/ph1p_ddrphy_clk_top.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/clk/ph1p_ddrphy_clk_top.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/clk/ph1p_ddrphy_pll0.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/clk/ph1p_ddrphy_pll0.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/clk/ph1p_ddrphy_pll0.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/clk/ph1p_ddrphy_pll1.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/clk/ph1p_ddrphy_pll1.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/clk/ph1p_ddrphy_pll1.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/include/ph1p_mis_define.vh",
+    "reference_path": "vendor_ip/ddr2/src/rtl/include/ph1p_mis_define.vh",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/include/ph1p_mis_define.vh"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/init/ph1p_ddrphy_dram_init_ddr2.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/init/ph1p_ddrphy_dram_init_ddr2.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/init/ph1p_ddrphy_dram_init_ddr2.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/mc/alc_mc_top_all.enc.sv",
+    "reference_path": "vendor_ip/ddr2/src/rtl/mc/alc_mc_top_all.enc.sv",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/mc/alc_mc_top_all.enc.sv"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/mc/alc_phy2mc_fifo_ctrl.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/mc/alc_phy2mc_fifo_ctrl.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/mc/alc_phy2mc_fifo_ctrl.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/misc/ph1p_ddr_fifo_dram_sync.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/misc/ph1p_ddr_fifo_dram_sync.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/misc/ph1p_ddr_fifo_dram_sync.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/misc/ph1p_ddrphy_sync_rst_gen.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/misc/ph1p_ddrphy_sync_rst_gen.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/misc/ph1p_ddrphy_sync_rst_gen.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ddrphy_cfg_rom.txt",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ddrphy_cfg_rom.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ddrphy_cfg_rom.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/include/ph1p_ddrphy_board_delay.vh",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/include/ph1p_ddrphy_board_delay.vh",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/include/ph1p_ddrphy_board_delay.vh"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/include/ph1p_ddrphy_bus_matrix.vh",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/include/ph1p_ddrphy_bus_matrix.vh",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/include/ph1p_ddrphy_bus_matrix.vh"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/include/ph1p_ddrphy_ddrio.vh",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/include/ph1p_ddrphy_ddrio.vh",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/include/ph1p_ddrphy_ddrio.vh"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/include/ph1p_ddrphy_pad_type.vh",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/include/ph1p_ddrphy_pad_type.vh",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/include/ph1p_ddrphy_pad_type.vh"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_apb_bridge.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_apb_bridge.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_apb_bridge.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_bankref_cfg.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_bankref_cfg.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_bankref_cfg.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_byte_wrapper.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_byte_wrapper.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_byte_wrapper.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_cmd_decode.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_cmd_decode.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_cmd_decode.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_cmd_execution.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_cmd_execution.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_cmd_execution.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_cmd_wrapper.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_cmd_wrapper.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_cmd_wrapper.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_dcu.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_dcu.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_dcu.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_dcu_wrapper.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_dcu_wrapper.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_dcu_wrapper.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_fast_init.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_fast_init.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_fast_init.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_fast_init_wrapper.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_fast_init_wrapper.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_fast_init_wrapper.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_init.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_init.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_init.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_mdl_cal.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_mdl_cal.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_mdl_cal.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_mdl_cal_wrapper.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_mdl_cal_wrapper.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_mdl_cal_wrapper.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_rphase_ctl.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_rphase_ctl.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_rphase_ctl.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_top.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_top.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_top.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_wphase_ctl.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_wphase_ctl.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_wphase_ctl.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_wrapper.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/phy/ph1p_ddrphy_wrapper.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ph1p_ddrphy_wrapper.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_1066.vh",
+    "reference_path": "vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_1066.vh",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/timing/ddr2/ddr2_1066.vh"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_1333.vh",
+    "reference_path": "vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_1333.vh",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/timing/ddr2/ddr2_1333.vh"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_400.vh",
+    "reference_path": "vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_400.vh",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/timing/ddr2/ddr2_400.vh"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_533.vh",
+    "reference_path": "vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_533.vh",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/timing/ddr2/ddr2_533.vh"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_667.vh",
+    "reference_path": "vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_667.vh",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/timing/ddr2/ddr2_667.vh"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_800.vh",
+    "reference_path": "vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_800.vh",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/timing/ddr2/ddr2_800.vh"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_parameter.vh",
+    "reference_path": "vendor_ip/ddr2/src/rtl/timing/ddr2/ddr2_parameter.vh",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/timing/ddr2/ddr2_parameter.vh"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/rtl/top/ph1p_ddrmc_top.v",
+    "reference_path": "vendor_ip/ddr2/src/rtl/top/ph1p_ddrmc_top.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/top/ph1p_ddrmc_top.v"
+  },
+  {
+    "target": "fpga/vendor_ip/ddr2/src/sdc/ddr2.sdc",
+    "reference_path": "vendor_ip/ddr2/src/sdc/ddr2.sdc",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/hdl_source/ph1p35_ddr/ddr2/src/sdc/ddr2.sdc"
+  },
+  {
+    "target": "fpga/vendor_ip/divider/divider.ipc",
+    "reference_path": "vendor_ip/divider/divider.ipc",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/divider/divider.ipc"
+  },
+  {
+    "target": "fpga/vendor_ip/divider/divider_gate.v",
+    "reference_path": "vendor_ip/divider/divider_gate.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/divider/divider_gate.v"
+  },
+  {
+    "target": "fpga/vendor_ip/PLL/.m_params_PLL.txt",
+    "reference_path": "vendor_ip/PLL/.m_params_PLL.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/PLL/.m_params_PLL.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/PLL/.params_PLL.txt",
+    "reference_path": "vendor_ip/PLL/.params_PLL.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/PLL/.params_PLL.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/PLL/.ports_PLL.txt",
+    "reference_path": "vendor_ip/PLL/.ports_PLL.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/PLL/.ports_PLL.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/PLL/Design.xml",
+    "reference_path": "vendor_ip/PLL/Design.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/PLL/Design.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/PLL/DesignConfiguration.xml",
+    "reference_path": "vendor_ip/PLL/DesignConfiguration.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/PLL/DesignConfiguration.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/PLL/PLL.v",
+    "reference_path": "vendor_ip/PLL/PLL.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/PLL/PLL.v"
+  },
+  {
+    "target": "fpga/vendor_ip/PLL/PLL.xml",
+    "reference_path": "vendor_ip/PLL/PLL.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/PLL/PLL.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/PLL/RTL/include/define.v",
+    "reference_path": "vendor_ip/PLL/RTL/include/define.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/PLL/RTL/include/define.v"
+  },
+  {
+    "target": "fpga/vendor_ip/PLL/RTL/ph1p_phy_pll_wrapper_25a56e5ce2f9.v",
+    "reference_path": "vendor_ip/PLL/RTL/ph1p_phy_pll_wrapper_25a56e5ce2f9.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/PLL/RTL/ph1p_phy_pll_wrapper_25a56e5ce2f9.v"
+  },
+  {
+    "target": "fpga/vendor_ip/w128_d512_fifo/.m_params_w128_d512_fifo.txt",
+    "reference_path": "vendor_ip/w128_d512_fifo/.m_params_w128_d512_fifo.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w128_d512_fifo/.m_params_w128_d512_fifo.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/w128_d512_fifo/.params_w128_d512_fifo.txt",
+    "reference_path": "vendor_ip/w128_d512_fifo/.params_w128_d512_fifo.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w128_d512_fifo/.params_w128_d512_fifo.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/w128_d512_fifo/.ports_w128_d512_fifo.txt",
+    "reference_path": "vendor_ip/w128_d512_fifo/.ports_w128_d512_fifo.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w128_d512_fifo/.ports_w128_d512_fifo.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/w128_d512_fifo/Design.xml",
+    "reference_path": "vendor_ip/w128_d512_fifo/Design.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w128_d512_fifo/Design.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/w128_d512_fifo/DesignConfiguration.xml",
+    "reference_path": "vendor_ip/w128_d512_fifo/DesignConfiguration.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w128_d512_fifo/DesignConfiguration.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/w128_d512_fifo/soft_fifo_al_4057d6b76aa6.v",
+    "reference_path": "vendor_ip/w128_d512_fifo/soft_fifo_al_4057d6b76aa6.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w128_d512_fifo/soft_fifo_al_4057d6b76aa6.v"
+  },
+  {
+    "target": "fpga/vendor_ip/w128_d512_fifo/w128_d512_fifo.tcl",
+    "reference_path": "vendor_ip/w128_d512_fifo/w128_d512_fifo.tcl",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w128_d512_fifo/w128_d512_fifo.tcl"
+  },
+  {
+    "target": "fpga/vendor_ip/w128_d512_fifo/w128_d512_fifo.v",
+    "reference_path": "vendor_ip/w128_d512_fifo/w128_d512_fifo.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w128_d512_fifo/w128_d512_fifo.v"
+  },
+  {
+    "target": "fpga/vendor_ip/w128_d512_fifo/w128_d512_fifo.xml",
+    "reference_path": "vendor_ip/w128_d512_fifo/w128_d512_fifo.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w128_d512_fifo/w128_d512_fifo.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/w155_d512_fifo/.m_params_w155_d512_fifo.txt",
+    "reference_path": "vendor_ip/w155_d512_fifo/.m_params_w155_d512_fifo.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w155_d512_fifo/.m_params_w155_d512_fifo.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/w155_d512_fifo/.params_w155_d512_fifo.txt",
+    "reference_path": "vendor_ip/w155_d512_fifo/.params_w155_d512_fifo.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w155_d512_fifo/.params_w155_d512_fifo.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/w155_d512_fifo/.ports_w155_d512_fifo.txt",
+    "reference_path": "vendor_ip/w155_d512_fifo/.ports_w155_d512_fifo.txt",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w155_d512_fifo/.ports_w155_d512_fifo.txt"
+  },
+  {
+    "target": "fpga/vendor_ip/w155_d512_fifo/Design.xml",
+    "reference_path": "vendor_ip/w155_d512_fifo/Design.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w155_d512_fifo/Design.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/w155_d512_fifo/DesignConfiguration.xml",
+    "reference_path": "vendor_ip/w155_d512_fifo/DesignConfiguration.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w155_d512_fifo/DesignConfiguration.xml"
+  },
+  {
+    "target": "fpga/vendor_ip/w155_d512_fifo/soft_fifo_al_f58e8b3e1f3d.v",
+    "reference_path": "vendor_ip/w155_d512_fifo/soft_fifo_al_f58e8b3e1f3d.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w155_d512_fifo/soft_fifo_al_f58e8b3e1f3d.v"
+  },
+  {
+    "target": "fpga/vendor_ip/w155_d512_fifo/w155_d512_fifo.v",
+    "reference_path": "vendor_ip/w155_d512_fifo/w155_d512_fifo.v",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w155_d512_fifo/w155_d512_fifo.v"
+  },
+  {
+    "target": "fpga/vendor_ip/w155_d512_fifo/w155_d512_fifo.xml",
+    "reference_path": "vendor_ip/w155_d512_fifo/w155_d512_fifo.xml",
+    "official_path": "official_2026/lab1/lab_hd_1_mipi_hdmi/user_source/ip_source/w155_d512_fifo/w155_d512_fifo.xml"
+  }
+]
