@@ -6,7 +6,7 @@
 ## 已有完整原生工程
 
 ```powershell
-python tools/import_vendor.py --reference-project E:/fpga31capture
+python tools/import_vendor.py --reference-project E:/fpga31motion
 ```
 
 该目录应包含 `inputs/` 与 `vendor_ip/`，版本对应本次编译工程。

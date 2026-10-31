@@ -3,7 +3,7 @@
 // Foreground gates old-position ghosts; full-frame changes invalidate tracking.
 // One target only: multiple moving foregrounds are an ROI union, not CCL.
 module part_frame_difference #(
- parameter W=128,H=75,THRESHOLD=20,MIN_CHANGED=4,HOLD_FRAMES=3
+ parameter W=128,H=75,THRESHOLD=20,MIN_CHANGED=12,HOLD_FRAMES=3
 )(
  input wire clk,rst_n,clear,frame_start,sample_valid,
  input wire [31:0] frame_id,input wire [7:0] gray,input wire foreground,

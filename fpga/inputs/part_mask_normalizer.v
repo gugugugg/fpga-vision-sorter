@@ -33,11 +33,9 @@ module part_mask_normalizer #(parameter W=128,H=75,MIN_AREA=16)(
  wire [7:0] next_max_y=foreground_filtered && y>max_y?y:max_y;
  wire [13:0] next_area=area+foreground_filtered;
  wire usable=next_area>=MIN_AREA && next_area<=P*3/4 &&
-  next_max_x>=next_min_x+3 && next_max_y>=next_min_y+3 &&
-  next_min_x>0 && next_max_x<W-1 && next_min_y>0 && next_max_y<H-1;
+  next_max_x>=next_min_x+3 && next_max_y>=next_min_y+3;
  wire [2:0] reason=next_area==0?1:next_area<MIN_AREA?2:next_area>P*3/4?3:
-  (next_max_x<next_min_x+3 || next_max_y<next_min_y+3)?4:
-  (next_min_x==0 || next_max_x>=W-1 || next_min_y==0 || next_max_y>=H-1)?5:0;
+  (next_max_x<next_min_x+3 || next_max_y<next_min_y+3)?4:0;
  always @(posedge clk)begin
   raw_q<=raw_mask[neighbour_addr];bit_q<=mask[read_addr];
   if(rst_n && !cancel && state==CAPTURE && sample_valid && !frame_start && count<P)

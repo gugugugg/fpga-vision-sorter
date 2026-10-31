@@ -1,0 +1,82 @@
+{
+  "status": "qualified",
+  "phase": "compiled",
+  "signature": "0x3924",
+  "native": "fpga",
+  "source": "previous version 0x3923",
+  "started_at": "2026-10-31T18:15:31.296823+08:00",
+  "border_rejection": false,
+  "motion_min_changed": 12,
+  "retained_empty_handling": true,
+  "unchecked_manual_template_capture": true,
+  "retained_cel": true,
+  "retained_micro_motion": true,
+  "placement_seed": 2,
+  "timing_constraints_unchanged": true,
+  "flash_programmed": true,
+  "area": {
+    "slices": 20856,
+    "capacity": 21216,
+    "percent": 98.3,
+    "eram": {
+      "used": 100,
+      "capacity": 108
+    },
+    "dsp": {
+      "used": 18,
+      "capacity": 40
+    },
+    "IO": {
+      "used": 86,
+      "capacity": 160
+    }
+  },
+  "timing": {
+    "SWNS": 0.045,
+    "STNS": 0.0,
+    "HWNS": 0.02,
+    "HTNS": 0.0
+  },
+  "ddr_audit": {
+    "ddr_calibration_crossing.rpt": {
+      "statistics": {
+        "Max": {
+          "wns_ns": 0.116,
+          "tns_ns": 0.0,
+          "violating_endpoints": 0,
+          "total_endpoints": 115,
+          "paths_analyzed": 115
+        },
+        "Min": {
+          "wns_ns": 0.02,
+          "tns_ns": 0.0,
+          "violating_endpoints": 0,
+          "total_endpoints": 115,
+          "paths_analyzed": 115
+        }
+      }
+    },
+    "ddr_calibration_reverse.rpt": {
+      "statistics": {
+        "Max": {
+          "wns_ns": 0.045,
+          "tns_ns": 0.0,
+          "violating_endpoints": 0,
+          "total_endpoints": 43,
+          "paths_analyzed": 43
+        },
+        "Min": {
+          "wns_ns": 0.524,
+          "tns_ns": 0.0,
+          "violating_endpoints": 0,
+          "total_endpoints": 43,
+          "paths_analyzed": 43
+        }
+      }
+    }
+  },
+  "bitstream": "build/contest_board_system.bit",
+  "finished_at": "2026-10-31T18:29:29.236469+08:00",
+  "deployment_evidence": "deployment.json",
+  "cold_boot_evidence": "cold_boot.json"
+}

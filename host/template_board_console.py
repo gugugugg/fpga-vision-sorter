@@ -67,7 +67,7 @@ def main():
     c=None;r={'action':args.action,'motor_commands_sent':False,'completed':False}
     try:
         c=Console(args.port);hello=checked(c,0x15)
-        if hello['value'] not in (0x3915,0x3916,0x3917,0x3918,0x3919,0x391a,0x391b,0x391c,0x391d,0x391e,0x391f,0x3920,0x3921,0x3922,0x3923) or hello['armed']:raise RuntimeError('Expected disarmed template console0x3915/0x3916/0x3917/0x3918/0x3919/0x391a/0x391b/0x391c')
+        if hello['value'] not in (0x3915,0x3916,0x3917,0x3918,0x3919,0x391a,0x391b,0x391c,0x391d,0x391e,0x391f,0x3920,0x3921,0x3922,0x3923,0x3924) or hello['armed']:raise RuntimeError('Expected disarmed template console0x3915/0x3916/0x3917/0x3918/0x3919/0x391a/0x391b/0x391c')
         r['before']=status(c)
         if args.action=='storage-status':
             r['storage']=storage_status(c);r['completed']=True
@@ -94,7 +94,7 @@ def main():
                     r['completed']=True;break
             if not r['completed']:raise TimeoutError('ACK received but capture did not complete')
         else:r['after']=r['before'];r['completed']=True
-        if hello['value'] in (0x391b,0x391c,0x391d,0x391e,0x391f,0x3920,0x3921,0x3922,0x3923) and args.action in ('background','cuboid','wedge'):
+        if hello['value'] in (0x391b,0x391c,0x391d,0x391e,0x391f,0x3920,0x3921,0x3922,0x3923,0x3924) and args.action in ('background','cuboid','wedge'):
             r['completed']=False
             required={'background':4,'cuboid':1,'wedge':2}[args.action]
             while time.monotonic()<deadline:

@@ -1,0 +1,10 @@
+{
+  "signature": "0x3924",
+  "source_root": "fpga/inputs",
+  "checks": {
+    "manual_capture_and_shadow_border_recognition": "passed",
+    "nearest_template_regression": "passed",
+    "motion_4_9_11_ignored_12_detected_stationary_cleared": "passed",
+    "project_references_prepared": 149
+  }
+}

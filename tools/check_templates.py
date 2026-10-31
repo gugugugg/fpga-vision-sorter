@@ -15,6 +15,7 @@ def main():
     jobs={
         'tb_manual_template_capture':['part_visual_grid.v','part_background_mask.v','part_mask_normalizer.v','part_binary_template.v','part_template_vote.v','part_frame_difference.v'],
         'tb_templates':['part_binary_template.v'],
+        'tb_motion_noise_threshold':['part_frame_difference.v'],
     }
     for name,files in jobs.items():
         executable=out/(name+'.vvp')

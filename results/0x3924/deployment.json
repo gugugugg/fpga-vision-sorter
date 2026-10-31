@@ -1,0 +1,15 @@
+{
+  "method": "boot Flash SPI",
+  "bitstream": "build/contest_board_system.bit",
+  "flash_written": true,
+  "physical_power_cycle_verified": true,
+  "exit_code": 0,
+  "phase": "cold_boot_verified",
+  "success": true,
+  "expected_signature": "0x3924",
+  "template_storage": "separate user SPI Flash U30; not programmed by this operation",
+  "motor_commands_sent": 0,
+  "signature": "0x3924",
+  "operator_hdmi_normal": true,
+  "cold_boot_evidence": "cold_boot.json"
+}
