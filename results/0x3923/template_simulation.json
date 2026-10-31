@@ -1,0 +1,20 @@
+{
+  "change": "manual template capture without foreground-quality rejection",
+  "source_root": "fpga/inputs",
+  "changed_files": [
+    "part_background_mask.v",
+    "part_binary_template.v",
+    "part_mask_normalizer.v",
+    "part_template_hdmi.v",
+    "part_visual_grid.v"
+  ],
+  "checks": {
+    "manual_capture_simulation": "passed: cuboid/wedge/border/large/empty/no-background",
+    "nearest_template_regression": "passed",
+    "hdmi_storage_elaboration": "passed"
+  },
+  "full_place_route_run": false,
+  "board_programmed": false,
+  "flash_readback_check": "unchanged",
+  "recognition_empty_check": "unchanged"
+}

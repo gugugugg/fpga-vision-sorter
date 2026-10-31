@@ -113,9 +113,8 @@ module part_template_hdmi #(
     if(command_code==1)begin bg_pending<=1;bg_busy<=1;bg_saw_invalid<=0;operation<=1;
      capture_kind<=1;capture_notice<=1;capture_start_frames<=30;end
     else if(command_code==2 || command_code==3)begin
-     if(bg_valid)begin record_request<=1;record_class<=command_code==3;operation<=command_code;
-      capture_kind<=command_code[1:0];capture_notice<=command_code[2:0];capture_start_frames<=30;end
-     else begin last_error<=1;generation<=generation+1'b1;capture_notice<=6;capture_start_frames<=0;end
+     record_request<=1;record_class<=command_code==3;operation<=command_code;
+     capture_kind<=command_code[1:0];capture_notice<=command_code[2:0];capture_start_frames<=30;
     end
    end
   end

@@ -17,7 +17,7 @@ module part_binary_template #(
 );
  (* ram_style="bram" *) reg cube[0:1023],wedge[0:1023],patch[0:1023];
  reg teaching,teach_slot,teach_bad,loading,patch_bad,patch_complete;
- reg [10:0] teach_count,teach_area,patch_count,patch_area;
+ reg [10:0] teach_count,patch_count,patch_area;
  reg [31:0] patch_id;
  reg [9:0] index;reg phase;
  reg cube_q,wedge_q,patch_q;
@@ -37,23 +37,23 @@ module part_binary_template #(
  always @(posedge clk or negedge rst_n) begin
   if(!rst_n) begin
    teaching<=0;teach_slot<=0;teach_bad<=0;loading<=0;patch_bad<=0;patch_complete<=0;
-   teach_count<=0;teach_area<=0;patch_count<=0;patch_area<=0;patch_id<=0;
+   teach_count<=0;patch_count<=0;patch_area<=0;patch_id<=0;
    index<=0;phase<=0;cube_sum<=0;wedge_sum<=0;
    busy<=0;done<=0;error<=0;templates_loaded<=0;result_class<=0;
    cuboid_errors<=0;wedge_errors<=0;result_frame_id<=0;reject_reason<=0;
   end else begin
    done<=0;error<=0;
    if(teach_begin && !busy && !loading)begin
-    teaching<=1;teach_slot<=teach_class;teach_count<=0;teach_area<=0;teach_bad<=0;
+    teaching<=1;teach_slot<=teach_class;teach_count<=0;teach_bad<=0;
     templates_loaded[teach_class]<=0;result_class<=0;
    end
    if(teach_we && teaching && !busy)begin
     if(teach_count>=1024 || teach_addr!=teach_count)teach_bad<=1;
-    else begin teach_count<=teach_count+1'b1;teach_area<=teach_area+teach_bit;end
+    else teach_count<=teach_count+1'b1;
    end
    if(teach_commit && teaching && !busy)begin
     teaching<=0;
-    if(teach_count==1024 && !teach_bad && teach_area>=MIN_AREA)
+    if(teach_count==1024 && !teach_bad)
       templates_loaded[teach_slot]<=1;
     else begin error<=1;reject_reason<=1;end
    end
@@ -97,7 +97,7 @@ module part_binary_template #(
    // old result regain validity while its template bank is being replaced.
    if(teach_begin && !cancel)begin
     busy<=0;done<=0;loading<=0;patch_complete<=0;result_class<=0;
-    teaching<=1;teach_slot<=teach_class;teach_count<=0;teach_area<=0;teach_bad<=0;
+    teaching<=1;teach_slot<=teach_class;teach_count<=0;teach_bad<=0;
     templates_loaded[teach_class]<=0;
    end
    if(clear_templates)begin

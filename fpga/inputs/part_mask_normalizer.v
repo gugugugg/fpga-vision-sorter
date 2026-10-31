@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 // A 3x3 majority removes isolated mask noise before measuring the bbox.
 module part_mask_normalizer #(parameter W=128,H=75,MIN_AREA=16)(
- input wire clk,rst_n,cancel,frame_start,sample_valid,foreground,consumer_ready,
+ input wire clk,rst_n,cancel,frame_start,sample_valid,foreground,consumer_ready,capture_unchecked,
  input wire [31:0] frame_id,
  output reg busy,dropped,patch_begin,patch_we,patch_bit,patch_start,
  output reg [9:0] patch_addr,output reg [31:0] patch_id,
@@ -65,11 +65,12 @@ module part_mask_normalizer #(parameter W=128,H=75,MIN_AREA=16)(
       min_x<=next_min_x;max_x<=next_max_x;min_y<=next_min_y;max_y<=next_max_y;
       if(count==P-1)begin
        object_valid<=usable;diagnostic<={12'd0,usable,reason,2'd0,next_area,next_min_x,next_max_x,next_min_y,next_max_y};
-       if(usable)begin
+       if(usable || (capture_unchecked && next_area!=0))begin
         bbox_x0<=next_min_x;bbox_x1<=next_max_x;bbox_y0<=next_min_y;bbox_y1<=next_max_y;
         box_w<=next_max_x-next_min_x+1'b1;box_h<=next_max_y-next_min_y+1'b1;
        end else begin
-        min_x<=0;min_y<=0;box_w<=1;box_h<=1;bbox_x0<=0;bbox_x1<=0;bbox_y0<=0;bbox_y1<=0;
+        min_x<=0;min_y<=0;box_w<=capture_unchecked?W:1;box_h<=capture_unchecked?H:1;
+        bbox_x0<=0;bbox_x1<=0;bbox_y0<=0;bbox_y1<=0;
        end
        index<=0;state<=BEGIN_PATCH;
       end else begin
@@ -81,7 +82,7 @@ module part_mask_normalizer #(parameter W=128,H=75,MIN_AREA=16)(
     BEGIN_PATCH:if(consumer_ready)begin patch_begin<=1;state<=READ_BIT;end
     READ_BIT:state<=WRITE_BIT;
     WRITE_BIT:begin
-     patch_we<=1;patch_addr<=index;patch_bit<=object_valid && bit_q;
+     patch_we<=1;patch_addr<=index;patch_bit<=(object_valid || capture_unchecked) && bit_q;
      if(index==1023)state<=FINISH;
      else begin index<=index+1'b1;state<=READ_BIT;end
     end

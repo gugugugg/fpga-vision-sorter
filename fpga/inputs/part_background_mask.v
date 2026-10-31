@@ -3,7 +3,7 @@
 // Teach is latched at frame start. Only a COMPLETE teach frame becomes valid.
 // R/B thresholds are in 5-bit codes; G in 6-bit codes (4/8 ~=32 of 255).
 module part_background_mask #(parameter W=128,H=75,RB_THRESHOLD=6,G_THRESHOLD=12)(
- input wire clk,rst_n,cancel,frame_start,teach_background,sample_valid,
+ input wire clk,rst_n,cancel,frame_start,teach_background,sample_valid,capture_unchecked,
  input wire storage_active,storage_load_begin,storage_load_we,storage_load_done,
  input wire [13:0] storage_addr,input wire [15:0] storage_pixel,output wire [15:0] storage_q,
  input wire [15:0] rgb565,input wire [31:0] frame_id,
@@ -45,7 +45,7 @@ module part_background_mask #(parameter W=128,H=75,RB_THRESHOLD=6,G_THRESHOLD=12
     pindex<=count;count<=count+1'b1;
    end
    if(pending)begin
-    out_valid<=!pteach && pvalid;gray<=lum[9:2];
+    out_valid<=!pteach && (pvalid || capture_unchecked);gray<=lum[9:2];
     foreground<=!pteach && pvalid && (dr>=applied_rb || dg>=applied_g || db>=applied_rb);
     if(pindex==P-1)begin active<=0;if(pteach)background_valid<=1;end
    end
@@ -54,7 +54,7 @@ module part_background_mask #(parameter W=128,H=75,RB_THRESHOLD=6,G_THRESHOLD=12
     active<=1;teaching<=teach_background;count<=0;pending<=0;
     // An interrupted replacement may already have overwritten reference RAM.
     if(teach_background || (active && teaching))background_valid<=0;
-    out_start<=!teach_background && background_valid && !(active && teaching);out_id<=frame_id;
+    out_start<=!teach_background && (background_valid || capture_unchecked) && !(active && teaching);out_id<=frame_id;
    end
    if(storage_active)begin active<=0;pending<=0;teaching<=0;end
    if(storage_load_begin)background_valid<=0;

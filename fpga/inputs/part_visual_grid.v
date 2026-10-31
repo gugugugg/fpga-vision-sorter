@@ -31,10 +31,11 @@ module part_visual_grid #(parameter W=128,H=75,CLK_HZ=50000000)(
  wire config_update=threshold_update===1'b1;
  wire clear_job=cancel || storage_load_begin || bg_start || teach_begin || record_request || config_update;
  wire [4:0] applied_rb;wire [5:0] applied_g;wire [63:0] mask_diagnostic;
+ reg record_pending,recording,record_slot;
  assign diagnostic={1'b0,applied_rb,applied_g,mask_diagnostic[51:0]};
  part_background_mask #(.W(W),.H(H)) u_background(
   .clk(clk),.rst_n(rst_n),.cancel(cancel),.frame_start(frame_start),.teach_background(teach_background),
-  .sample_valid(sample_valid),.rgb565(rgb565),.frame_id(frame_id),
+  .sample_valid(sample_valid),.rgb565(rgb565),.frame_id(frame_id),.capture_unchecked(record_pending || recording),
   .storage_active(storage_active),.storage_load_begin(storage_load_begin),.storage_load_we(storage_load_we),.storage_load_done(storage_load_done),
   .storage_addr(storage_addr),.storage_pixel(storage_pixel),.storage_q(storage_q),
   .threshold_update(config_update),.threshold_rb(threshold_rb),.threshold_g(threshold_g),
@@ -45,11 +46,10 @@ module part_visual_grid #(parameter W=128,H=75,CLK_HZ=50000000)(
  wire [7:0] bx0,bx1,by0,by1;wire object_valid;
  reg [7:0] saved_x0,saved_x1,saved_y0,saved_y1;
  wire vote_stable;wire [1:0] vote_class;
- reg record_pending,recording,record_slot;
  reg [31:0] request_source;
  wire [31:0] source_distance=pid-request_source;
  wire fresh_patch=source_distance!=0 && !source_distance[31];
- wire record_begin=pb && record_pending && fresh_patch && object_valid && background_valid;
+ wire record_begin=pb && record_pending && fresh_patch;
  wire local_teach_begin=teach_begin || record_begin;
  assign capture_begin=record_begin;assign capture_we=recording && pw;
  assign capture_bit=pbit;assign capture_addr=pa;assign capture_commit=recording && ps;
@@ -59,7 +59,8 @@ module part_visual_grid #(parameter W=128,H=75,CLK_HZ=50000000)(
  assign stable_class=stable?vote_class:0;
  part_mask_normalizer #(.W(W),.H(H)) u_normalizer(
   .clk(clk),.rst_n(rst_n),.cancel(clear_job),.frame_start(gs),.sample_valid(gv),
-  .foreground(fg),.consumer_ready(ready || recording || record_begin),.frame_id(gid),.busy(normal_busy),.dropped(dropped),
+  .foreground(fg),.consumer_ready(ready || recording || record_begin),.capture_unchecked(record_pending || recording),
+  .frame_id(gid),.busy(normal_busy),.dropped(dropped),
   .patch_begin(pb),.patch_we(pw),.patch_bit(pbit),.patch_start(ps),.patch_addr(pa),.patch_id(pid),
   .bbox_x0(bx0),.bbox_x1(bx1),.bbox_y0(by0),.bbox_y1(by1),.object_valid(object_valid),.diagnostic(mask_diagnostic));
  part_binary_template u_templates(
@@ -99,9 +100,6 @@ module part_visual_grid #(parameter W=128,H=75,CLK_HZ=50000000)(
     record_pending<=1;recording<=0;record_slot<=record_class;request_source<=frame_id;record_error<=0;
    end
    if(record_begin)begin record_pending<=0;recording<=1;record_frame_id<=pid;end
-   if(pb && record_pending && fresh_patch && !object_valid)begin
-    record_pending<=0;record_error<=1;record_done<=1;record_frame_id<=pid;
-   end
    if(ps && recording)begin recording<=0;record_done<=1;end
    if(bg_start || cancel)begin record_pending<=0;recording<=0;record_error<=0;end
   end

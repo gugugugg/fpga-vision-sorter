@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    ap = argparse.ArgumentParser(description='构建 0x3920 正式工程，不执行烧录')
+    ap = argparse.ArgumentParser(description='构建 0x3923 正式工程，不执行烧录')
     ap.add_argument('--td-root', type=Path, default=Path('D:/anlu'))
     ap.add_argument('--output', type=Path, default=ROOT/'build')
     ap.add_argument('--prepare-only', action='store_true')

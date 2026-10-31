@@ -575,7 +575,7 @@ module contest_board_top #(
 
     // USB UART belongs exclusively to the qualified arm packet console.
     // Camera menu keys cannot issue a physical jog; K4 remains a stop input.
-    robot_arm_zlink_console #(.ALLOW_MULTI_MANUAL(1),.SIGNATURE(16'h3920)) u_teach_console(
+    robot_arm_zlink_console #(.ALLOW_MULTI_MANUAL(1),.SIGNATURE(16'h3923)) u_teach_console(
       .I_sys_clk(I_sys_clk),.I_rst_n(sys_rst_n),.I_usb_uart_rx(I_uart_rx),
       .I_arm_uart_rx(I_arm_uart_rx),.I_key1_n(1'b1),.I_key2_n(1'b1),
       .I_key4_n(I_capture_key_n),.I_sw4(1'b1),

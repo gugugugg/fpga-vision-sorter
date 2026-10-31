@@ -3,8 +3,8 @@
 基于 **安路 PH1P35MDG324 FPGA / HX1P35A** 的实时图像处理与机械臂分拣工程。
 图像采集、视觉处理、模板识别、帧差跟踪、HDMI 交互和分拣任务控制运行在 FPGA 上；电脑用于构建、串口诊断和离线算法对照。
 
-本仓库 main 分支发布 **0x3920，已写入板上 Flash 并通过断电重启确认的正式版本**。源码来自 2026-10-30 通过完整布局布线与时序检查的工程快照；发布时仅将 ROM 文件与工具安装路径改为可迁移的相对路径或运行参数。
-RAW 显示现有校准画面，不使用 SW2 切换。此前的 SW2 候选版仅保留在历史标签 [`v0.1.0-raw-switch-3922`](https://github.com/gugugugg/fpga-vision-sorter/tree/v0.1.0-raw-switch-3922) 中；正式版本标签为 `v0.1.1-stable-3920`。
+本仓库 main 分支发布 **0x3923 按键直接采集模板版本**，来自2026-10-31完成综合、布局布线与时序检查的工程。K2直接采长方体、K3直接采楔形，采集阶段不再按前景面积、边界或有效性拒绝保存。已写入板载Flash，断电重启后版本回读为0x3923、HDMI动态画面正常。
+RAW沿用黑电平、颜色校准和白平衡链路，不使用SW2切换。当前标签为`v0.1.2-manual-capture-3923`；旧版`v0.1.1-stable-3920`和SW2候选`v0.1.0-raw-switch-3922`均保留。
 
 ## 功能
 
@@ -47,7 +47,7 @@ SW1 + K1/K2/K3 → 背景/模板采集 → 独立用户 SPI Flash
 ```
 
 识别对有效前景归一化后，与两类实拍模板逐位比较，选择差异更小的一类；匹配分数和分差拒绝门槛已关闭。
-空台无目标、轮廓触边等前景有效性处理仍保留。模板采集依赖固定相机、工位与照明。
+识别阶段保留空台无目标与轮廓触边处理。手动采集则按键指定类别，记录新的完整源帧：有前景时按包围范围归一化，空前景或无有效背景时保存空掩膜。相机、工位与照明固定后采集背景和模板。
 
 机械臂按已标定点位执行：回展示台、张爪下降、闭合、抬升、分类转运、下降、松爪、返回右侧上方待机。
 闭合时使用夹爪位置回读与目标差值形成接触候选；它属于位置反馈判据，不是力传感器测量。
@@ -94,7 +94,7 @@ HDMI 刷新率与相机新源帧率分别统计；上述刷新率由时钟与总
 | SORT、菜单关闭、SW1 OFF 时 K2 | 启动一次分拣 |
 | SW5 ON | 板载蜂鸣器硬件使能 |
 
-首次布置工位时，先清空展示台采背景，再分别放入两类工件采模板。
+首次布置工位时，先清空展示台采背景，再分别放入两类工件采模板。SW4保持OFF，SW1置ON；K1采背景，K2直接采长方体，K3直接采楔形。采集后的Flash写入与回读比较保留。
 等待屏幕显示采集、写入完成后再更换工件或断电。三项数据均支持断电保存，可按需单独更新。
 上电保持待机，不会自行开始分拣。
 
@@ -104,27 +104,27 @@ HDMI 刷新率与相机新源帧率分别统计；上述刷新率由时钟与总
 
 | 资源 | 使用量 |
 |---|---:|
-| Slice | 21023 / 21216，99.09% |
+| Slice | 21080 / 21216，99.36% |
 | ERAM | 100 / 108 |
 | DSP | 18 / 40 |
 | IO | 86 / 160 |
 
 | 时序 | 最差余量 | 总负余量 |
 |---|---:|---:|
-| Setup | +0.070 ns | 0 ns |
+| Setup | +0.018 ns | 0 ns |
 | Hold | +0.020 ns | 0 ns |
 
 DDR 校准路径两个方向分别检查 115 和 43 个端点，建立与保持时间均无违例。
-原生结果位于 [`results/0x3920`](results/0x3920)，包含资源报告、时序摘要、DDR 双向报告、模板匹配仿真结果及 Flash 冷启动记录。
+原生结果位于 [`results/0x3923`](results/0x3923)，包含资源报告、时序摘要、DDR双向报告和采集及分类仿真结果；旧版实拍与冷启动记录保留在`results/0x3920`。
 
 ## 目录
 
 ```text
-fpga/                 0x3920 原生 TD 工程、项目 RTL、ROM 数据、引脚与时序约束
+fpga/                 0x3923 原生 TD 工程、项目 RTL、ROM 数据、引脚与时序约束
 dependencies/         厂商 BSP/IP 导入清单
 tools/                导入依赖和构建脚本
 host/                 UART 版本、识别、存储与机械臂诊断工具
-results/0x3920/        实际编译结果
+results/0x3923/        实际编译结果
 docs/                 接线操作说明和可打印演示图卡
 ```
 
@@ -136,7 +136,7 @@ docs/                 接线操作说明和可打印演示图卡
 如果已有本版完整原生工程目录：
 
 ```powershell
-python tools/import_vendor.py --reference-project E:/fpga30nearest
+python tools/import_vendor.py --reference-project E:/fpga31capture
 python tools/build.py --td-root D:/anlu --prepare-only
 python tools/build.py --td-root D:/anlu
 ```
@@ -144,6 +144,16 @@ python tools/build.py --td-root D:/anlu
 从官方参考资料恢复依赖的方式见依赖说明。`build/` 是构建输出目录。
 也可以用 TD 打开 `fpga/contest_board_system.al` 查看工程；重现本次 seed 和 route 设置请使用上述构建脚本。
 脚本只编译，不烧录、不向机械臂发送指令。
+
+### 模板采集仿真
+
+安装 Icarus Verilog 后运行：
+
+```powershell
+python tools/check_templates.py
+```
+
+覆盖按键指定类别、碰边、大面积和空前景采集，以及原有最近模板分类。
 
 ### 串口诊断
 
@@ -153,7 +163,7 @@ python host/zlink_board_console.py hello --port COM5
 python host/template_board_console.py status --port COM5 --output build/template-status.json
 ```
 
-将 COM5 换成实际板载串口。`hello` 预期读到 `0x3920`，识别与存储可分别用 `status`、`storage-status` 查看。
+将 COM5 换成实际板载串口。`hello` 预期读到 `0x3923`，识别与存储可分别用 `status`、`storage-status` 查看。
 [`docs/demo-cards.pdf`](docs/demo-cards.pdf) 提供 A4 打印图卡，25 mm / 40 mm 两种图芯，以及微运动与跟踪附件。
 
 ## 开源协议
