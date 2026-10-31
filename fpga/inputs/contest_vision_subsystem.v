@@ -35,7 +35,6 @@ module contest_vision_subsystem #(
     input  wire [3:0]  i_key_n,
     input wire i_menu_enabled,
     input wire i_capture_mode,output wire [3:0] o_key_press,
-    input wire i_raw_calibration,
     input wire i_remote_mode_valid,input wire [5:0] i_remote_mode,
     input wire i_remote_threshold_valid,input wire [9:0] i_remote_threshold,
     output wire o_remote_rejected,
@@ -48,8 +47,6 @@ module contest_vision_subsystem #(
     // Demosaic RGB888 4PPC domain.
     input  wire        i_isp_clk,
     input  wire        i_isp_rst_n,
-    output wire [5:0] o_requested_capture_mode,
-    input wire [5:0] i_capture_frame_mode,
     input  wire        i_isp_sof,
     // Legacy name: this is the vendor stream's TLAST/end-of-line marker, not
     // a unique end-of-frame pulse.
@@ -124,16 +121,15 @@ module contest_vision_subsystem #(
     reg mode_ctrl_init;
     reg [15:0] mode_ctrl_last;
     reg mode_ctrl_update;
-    wire [5:0] capture_mode_sys=mode_sys==0 && !i_raw_calibration ? 6'd14 : mode_sys;
-    wire [15:0] mode_ctrl_sys = {capture_mode_sys,threshold_sys};
+    wire [15:0] mode_ctrl_sys = {mode_sys,threshold_sys};
     wire [15:0] mode_ctrl_isp_rx;
     wire mode_ctrl_busy;
     wire mode_ctrl_isp_update;
     reg [15:0] mode_ctrl_isp;
     wire [5:0] mode_isp = mode_ctrl_isp[15:10];
-    assign o_requested_capture_mode=mode_isp;
-    wire [2:0] core_mode_isp = i_capture_frame_mode==14 ? 3'd7 :
-        (!NORMAL_IMAGE_AWB && i_capture_frame_mode==0) ? 3'd0 : 3'd5;
+    // Normal M0 and all algorithms use calibrated, white-balanced RGB.
+    // Compile-time diagnostic mode preserves uncorrected sensor reference.
+    wire [2:0] core_mode_isp = (!NORMAL_IMAGE_AWB && mode_isp == 0) ? 3'd0 : 3'd5;
     wire [9:0] threshold_isp = mode_ctrl_isp[9:0];
 
     assign o_sys_mode=mode_sys;assign o_sys_threshold=threshold_sys;
@@ -233,7 +229,7 @@ module contest_vision_subsystem #(
             source_frame_id<=0;completed_frame_id<=0;source_mode<=0;completed_mode<=0;
         end else if(i_isp_sof && i_isp_valid) begin
             completed_frame_id<=source_frame_id;completed_mode<=source_mode;
-            source_frame_id<=source_frame_id+1'b1;source_mode<=i_capture_frame_mode;
+            source_frame_id<=source_frame_id+1'b1;source_mode<=mode_isp;
         end
     end
     assign o_stream_meta={source_frame_id,source_mode};
@@ -500,7 +496,7 @@ module contest_vision_subsystem #(
             .i_clk(i_hdmi_clk),.i_rst_n(i_hdmi_rst_n),
             .i_vsync(osd_vsync),.i_hsync(osd_hsync),.i_de(osd_de),.i_rgb(osd_rgb),
             .i_menu_open(state_hdmi[18]),.i_cursor(state_hdmi[17:12]),
-            .i_first(state_hdmi[11:6]),.i_applied_mode(mode_hdmi==14 ? 6'd0 : mode_hdmi),
+            .i_first(state_hdmi[11:6]),.i_applied_mode(mode_hdmi),
             .o_vsync(o_hdmi_vsync),.o_hsync(o_hdmi_hsync),.o_de(o_hdmi_de),.o_rgb(o_hdmi_rgb));
     end else begin:g_no_menu
         assign o_hdmi_vsync=osd_vsync;assign o_hdmi_hsync=osd_hsync;

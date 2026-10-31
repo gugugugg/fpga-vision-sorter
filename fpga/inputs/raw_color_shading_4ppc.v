@@ -11,8 +11,6 @@ module raw_color_shading_4ppc #(
     input wire i_clk,i_rst_n,
     input wire [39:0] i_raw,
     input wire i_valid,i_sof,i_last,
-    input wire [5:0] i_mode,
-    output wire [5:0] o_frame_mode,
     output reg [39:0] o_raw,
     output reg o_valid,o_sof,o_last
 );
@@ -25,10 +23,6 @@ module raw_color_shading_4ppc #(
     reg [23:0] gain;
     reg [39:0] p_raw,q_raw;
     reg p_valid,p_sof,p_last,p_red,q_valid,q_sof,q_last,q_red;
-    reg [5:0] frame_mode;
-    reg p_reference,q_reference;
-    wire [5:0] sample_mode=i_sof?i_mode:frame_mode;
-    assign o_frame_mode=frame_mode;
     reg [21:0] product0,product1;
     wire [11:0] selected_gain=p_red ? gain[23:12]:gain[11:0];
     function [9:0] scaled;
@@ -48,26 +42,21 @@ module raw_color_shading_4ppc #(
             x<=0;y<=0;p_valid<=0;q_valid<=0;o_valid<=0;
             p_sof<=0;q_sof<=0;o_sof<=0;p_last<=0;q_last<=0;o_last<=0;
             p_red<=0;q_red<=0;p_raw<=0;q_raw<=0;o_raw<=0;
-            frame_mode<=0;p_reference<=0;q_reference<=0;
             product0<=0;product1<=0;
         end else begin
             p_valid<=i_valid;p_sof<=i_valid && i_sof;p_last<=i_valid && i_last;
             if(i_valid) begin
-                if(i_sof)frame_mode<=i_mode;
-                p_reference<=sample_mode==14;
-                p_raw<=sample_mode==14?i_raw:
-                       {remove_black(i_raw[39:30]),remove_black(i_raw[29:20]),
+                p_raw<={remove_black(i_raw[39:30]),remove_black(i_raw[29:20]),
                         remove_black(i_raw[19:10]),remove_black(i_raw[9:0])};
                 p_red<=sy[0];
                 if(i_last) begin x<=0;y<=(sy==HEIGHT-1) ? 10'd0:sy+10'd1;end
                 else begin x<=sx+10'd4;y<=sy;end
             end
             q_valid<=p_valid;q_sof<=p_sof;q_last<=p_last;q_red<=p_red;q_raw<=p_raw;
-            q_reference<=p_reference;
             product0<=(p_red ? p_raw[19:10]:p_raw[9:0])*selected_gain;
             product1<=(p_red ? p_raw[39:30]:p_raw[29:20])*selected_gain;
             o_valid<=q_valid;o_sof<=q_sof;o_last<=q_last;
-            o_raw<=q_reference?q_raw:q_red ? {scaled(product1),q_raw[29:20],scaled(product0),q_raw[9:0]}:
+            o_raw<=q_red ? {scaled(product1),q_raw[29:20],scaled(product0),q_raw[9:0]}:
                                 {q_raw[39:30],scaled(product1),q_raw[19:10],scaled(product0)};
         end
     end

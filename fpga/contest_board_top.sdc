@@ -101,6 +101,3 @@ set_output_delay -clock [get_clocks {sys_clk_50m}] -min 0.000 [get_ports {O_uart
 set_false_path -from [get_ports {I_sw1}] -to [get_regs -nowarn {u_capture_controls/capture_sync0}]
 set_false_path -from [get_ports {I_sw4}] -to [get_regs -nowarn {u_capture_controls/sw4_sync0}]
 set_false_path -from [get_ports {I_template_flash_miso}] -to [get_regs -nowarn {u_template_video/u_flash/miso_sync0}]
-
-# SW2 asynchronous input, first synchronizer stage only.
-set_false_path -from [get_ports {I_sw2}] -to [get_regs -nowarn {raw_calibration_sync[0]}]

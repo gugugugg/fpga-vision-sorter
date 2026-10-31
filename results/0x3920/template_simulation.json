@@ -1,0 +1,47 @@
+{
+  "result": "PASS templates: exact/noisy/large-distance nearest classes, empty, untrained, malformed, cancel, close templates",
+  "cases": [
+    {
+      "class_id": 1,
+      "cuboid_errors": 0,
+      "wedge_errors": 496,
+      "reject_reason": 0,
+      "score_is_probability": false
+    },
+    {
+      "class_id": 2,
+      "cuboid_errors": 496,
+      "wedge_errors": 0,
+      "reject_reason": 0,
+      "score_is_probability": false
+    },
+    {
+      "class_id": 0,
+      "cuboid_errors": 1024,
+      "wedge_errors": 1024,
+      "reject_reason": 4,
+      "score_is_probability": false
+    },
+    {
+      "class_id": 1,
+      "cuboid_errors": 70,
+      "wedge_errors": 498,
+      "reject_reason": 0,
+      "score_is_probability": false
+    },
+    {
+      "class_id": 2,
+      "cuboid_errors": 498,
+      "wedge_errors": 70,
+      "reject_reason": 0,
+      "score_is_probability": false
+    },
+    {
+      "class_id": 2,
+      "cuboid_errors": 576,
+      "wedge_errors": 512,
+      "reject_reason": 0,
+      "score_is_probability": false
+    }
+  ]
+}

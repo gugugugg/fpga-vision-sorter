@@ -3,14 +3,14 @@
 基于 **安路 PH1P35MDG324 FPGA / HX1P35A** 的实时图像处理与机械臂分拣工程。
 图像采集、视觉处理、模板识别、帧差跟踪、HDMI 交互和分拣任务控制运行在 FPGA 上；电脑用于构建、串口诊断和离线算法对照。
 
-本仓库发布 **0x3922，RAW 模式内 SW2 原始/校准切换版**。源码来自 2026-10-30 通过完整布局布线与时序检查的工程快照；发布时仅将 ROM 文件与工具安装路径改为可迁移的相对路径或运行参数。
-该版尚待上板验证；此前现场验证和板上 Flash 固化版本为 0x3920。本次开源发布不执行烧录。
+本仓库 main 分支发布 **0x3920，已写入板上 Flash 并通过断电重启确认的正式版本**。源码来自 2026-10-30 通过完整布局布线与时序检查的工程快照；发布时仅将 ROM 文件与工具安装路径改为可迁移的相对路径或运行参数。
+RAW 显示现有校准画面，不使用 SW2 切换。此前的 SW2 候选版仅保留在历史标签 [`v0.1.0-raw-switch-3922`](https://github.com/gugugugg/fpga-vision-sorter/tree/v0.1.0-raw-switch-3922) 中；正式版本标签为 `v0.1.1-stable-3920`。
 
 ## 功能
 
 | 模式 | 功能 |
 |---|---|
-| RAW | 相机画面对照；SW2 在原始参考和校准画面之间切换 |
+| RAW | 现有黑电平、颜色校准与白平衡链路的相机画面 |
 | AE / AWB | 自动曝光与白平衡观察 |
 | CNTR / GAUS | 对比度调整、Gaussian 滤波 |
 | SOBL / BIN | Sobel 边缘、固定阈值二值化 |
@@ -23,20 +23,12 @@
 菜单共 **14 项**，模式位图 `0x1f0db7`。MEDN、HEQ、ADPT、浮世绘、水墨、EVA、三维重建和 CNN 未作为本版菜单功能启用；网口和 TF 卡动图也未启用。
 部分通用源码仍保留可配置分支，实际启用项由顶层参数、模式位图及布局后的实例决定。
 
-### RAW 与 SW2
-
-- **SW2 OFF / 向下**：原始参考画面，绕过黑电平补偿、空间颜色增益与白平衡增益；保持当前曝光、增益控制值。
-- **SW2 ON / 向上**：校准 RAW，启用现有颜色校准和白平衡链路。
-- 仅影响 RAW，其他算法模式仍沿用校准链路，不新增 ORG 菜单项。
-- 原始参考仍经过 RAW10 解包、中心裁剪、解拜耳和显示所需格式转换，输出是可观看的 RGB 图像，不是传感器 Bayer 文件导出。
-- 切换按源帧起点生效，模式信息与 DDR 帧元数据一起传递；流水线延迟保持一致。
-
 ## 系统结构
 
 ```text
 SC520CS / MIPI RAW10
         │
-  解包、裁剪、黑电平与空间颜色校准 ← SW2 原始/校准选择
+  解包、裁剪、黑电平与空间颜色校准
         │
   解拜耳、曝光与白平衡控制
         │
@@ -96,7 +88,6 @@ HDMI 刷新率与相机新源帧率分别统计；上述刷新率由时钟与总
 | SW4 OFF + K3 | 打开菜单、确认选择 |
 | 菜单中的 K1 / K2 | 上 / 下选择 |
 | K4 | 退出菜单；机械臂控制停止入口 |
-| RAW 中的 SW2 | OFF 原始参考，ON 校准 |
 | SW1 ON | 进入采集模式，屏幕下方显示按键说明 |
 | 采集模式 K1 / K2 / K3 | 更新空台背景 / 长方体模板 / 楔形模板 |
 | 采集模式 K4 | 取消采集 |
@@ -110,32 +101,30 @@ HDMI 刷新率与相机新源帧率分别统计；上述刷新率由时钟与总
 ## 布局布线结果
 
 工具：Tang Dynasty **6.2.178840**，placement seed **2**，保留原时钟与 DDR 时序约束。
-SW2 仅新增到第一级同步寄存器的异步输入约束。
 
 | 资源 | 使用量 |
 |---|---:|
-| Slice | 21160 / 21216，99.74% |
+| Slice | 21023 / 21216，99.09% |
 | ERAM | 100 / 108 |
 | DSP | 18 / 40 |
-| IO | 87 / 160 |
+| IO | 86 / 160 |
 
 | 时序 | 最差余量 | 总负余量 |
 |---|---:|---:|
-| Setup | +0.005 ns | 0 ns |
+| Setup | +0.070 ns | 0 ns |
 | Hold | +0.020 ns | 0 ns |
 
 DDR 校准路径两个方向分别检查 115 和 43 个端点，建立与保持时间均无违例。
-原生结果位于 [`results/0x3922`](results/0x3922)，包含资源报告、时序摘要、DDR 双向报告及 RAW 切换仿真结果。
+原生结果位于 [`results/0x3920`](results/0x3920)，包含资源报告、时序摘要、DDR 双向报告、模板匹配仿真结果及 Flash 冷启动记录。
 
 ## 目录
 
 ```text
-fpga/                 0x3922 原生 TD 工程、项目 RTL、ROM 数据、引脚与时序约束
+fpga/                 0x3920 原生 TD 工程、项目 RTL、ROM 数据、引脚与时序约束
 dependencies/         厂商 BSP/IP 导入清单
-tools/                导入依赖、构建和运行现有仿真的脚本
+tools/                导入依赖和构建脚本
 host/                 UART 版本、识别、存储与机械臂诊断工具
-sim/                  RAW 前端和核心切换仿真
-results/0x3922/        实际编译结果
+results/0x3920/        实际编译结果
 docs/                 接线操作说明和可打印演示图卡
 ```
 
@@ -147,7 +136,7 @@ docs/                 接线操作说明和可打印演示图卡
 如果已有本版完整原生工程目录：
 
 ```powershell
-python tools/import_vendor.py --reference-project E:/fpga30rawsw
+python tools/import_vendor.py --reference-project E:/fpga30nearest
 python tools/build.py --td-root D:/anlu --prepare-only
 python tools/build.py --td-root D:/anlu
 ```
@@ -155,16 +144,6 @@ python tools/build.py --td-root D:/anlu
 从官方参考资料恢复依赖的方式见依赖说明。`build/` 是构建输出目录。
 也可以用 TD 打开 `fpga/contest_board_system.al` 查看工程；重现本次 seed 和 route 设置请使用上述构建脚本。
 脚本只编译，不烧录、不向机械臂发送指令。
-
-### RAW 切换仿真
-
-安装 Icarus Verilog，使 `iverilog` 和 `vvp` 在 PATH 中，执行：
-
-```powershell
-python tools/check_raw_switch.py
-```
-
-已有仿真覆盖原始 RAW10 保真、校准算术、帧中切换延后生效、同步信号与有效间隙对齐，以及原始/校准来回切换时的白平衡与曝光统计行为。
 
 ### 串口诊断
 
@@ -174,7 +153,7 @@ python host/zlink_board_console.py hello --port COM5
 python host/template_board_console.py status --port COM5 --output build/template-status.json
 ```
 
-将 COM5 换成实际板载串口。`hello` 预期读到 `0x3922`，识别与存储可分别用 `status`、`storage-status` 查看。
+将 COM5 换成实际板载串口。`hello` 预期读到 `0x3920`，识别与存储可分别用 `status`、`storage-status` 查看。
 [`docs/demo-cards.pdf`](docs/demo-cards.pdf) 提供 A4 打印图卡，25 mm / 40 mm 两种图芯，以及微运动与跟踪附件。
 
 ## 开源协议

@@ -26,7 +26,6 @@ module contest_board_top #(
     input  wire        I_rst_n,
     input wire I_sw4,
     input wire I_sw1,
-    input wire I_sw2,
     output wire O_template_flash_cs_n,O_template_flash_clk,O_template_flash_mosi,
     input wire I_template_flash_miso,
     output wire O_template_flash_wp_n,O_template_flash_hold_n,
@@ -234,10 +233,6 @@ module contest_board_top #(
     wire [7:0] net_rx_data,net_tx_data;
     wire remote_mode_valid,remote_threshold_valid,remote_rejected;
     wire [5:0] remote_mode,sys_mode,display_mode;
-    (* async_reg="true",syn_preserve=1 *) reg [1:0] raw_calibration_sync;
-    always @(posedge I_sys_clk or negedge sys_rst_n)
-        if(!sys_rst_n)raw_calibration_sync<=2'b11;
-        else raw_calibration_sync<={raw_calibration_sync[0],I_sw2};
     wire menu_open_sys;
     wire [15:0] sort_status_sys,sort_status_pixel;
     wire [9:0] remote_threshold,sys_threshold;
@@ -454,7 +449,6 @@ module contest_board_top #(
 
     wire [39:0] calibrated_raw;
     wire calibrated_valid,calibrated_sof,calibrated_last;
-    wire [5:0] requested_capture_mode,capture_frame_mode;
     generate if(ENABLE_COLOR_SHADING) begin:g_color_calibration
         // Covered-lens green median 16 RGB8 => nominal RAW10 pedestal 64.
         // Subtract before spatial gains; the uncorrected diagnostic bypass
@@ -462,15 +456,9 @@ module contest_board_top #(
         raw_color_shading_4ppc #(.BLACK_LEVEL(10'd64)) u_color_shading(
             .i_clk(csi_rx_clk),.i_rst_n(csi_rst_n),.i_raw(raw_data),
             .i_valid(raw_valid),.i_sof(raw_user),.i_last(raw_last),
-            .i_mode(requested_capture_mode),.o_frame_mode(capture_frame_mode),
             .o_raw(calibrated_raw),.o_valid(calibrated_valid),
             .o_sof(calibrated_sof),.o_last(calibrated_last));
     end else begin:g_uncorrected_camera
-        reg [5:0] frame_mode;
-        always @(posedge csi_rx_clk or negedge csi_rst_n)
-            if(!csi_rst_n)frame_mode<=0;
-            else if(raw_valid && raw_user)frame_mode<=requested_capture_mode;
-        assign capture_frame_mode=frame_mode;
         assign calibrated_raw=raw_data;assign calibrated_valid=raw_valid;
         assign calibrated_sof=raw_user;assign calibrated_last=raw_last;
     end endgenerate
@@ -503,13 +491,11 @@ module contest_board_top #(
         .i_sys_clk(I_sys_clk), .i_sys_rst_n(sys_rst_n),
         .i_key_n(menu_keys_n),.i_menu_enabled(menu_enabled && !capture_mode),
         .i_capture_mode(capture_mode),.o_key_press(capture_keys),
-        .i_raw_calibration(raw_calibration_sync[1]),
         .i_remote_mode_valid(remote_mode_valid),.i_remote_mode(remote_mode),
         .i_remote_threshold_valid(remote_threshold_valid),.i_remote_threshold(remote_threshold),
         .o_menu_open(menu_open_sys),.o_remote_rejected(remote_rejected),.o_sys_mode(sys_mode),.o_sys_threshold(sys_threshold),
         .o_display_mode(display_mode),.o_status_hdmi(hdmi_status),.o_debug_telemetry(debug_telemetry_hdmi),
         .i_isp_clk(csi_rx_clk), .i_isp_rst_n(csi_rst_n),
-        .o_requested_capture_mode(requested_capture_mode),.i_capture_frame_mode(capture_frame_mode),
         .i_isp_sof(demosaic_user), .i_isp_eof(demosaic_last),
         .i_isp_valid(demosaic_valid), .i_isp_rgb(demosaic_rgb),
         .o_isp_sof(vision_sof), .o_isp_eof(vision_eol),
@@ -589,7 +575,7 @@ module contest_board_top #(
 
     // USB UART belongs exclusively to the qualified arm packet console.
     // Camera menu keys cannot issue a physical jog; K4 remains a stop input.
-    robot_arm_zlink_console #(.ALLOW_MULTI_MANUAL(1),.SIGNATURE(16'h3922)) u_teach_console(
+    robot_arm_zlink_console #(.ALLOW_MULTI_MANUAL(1),.SIGNATURE(16'h3920)) u_teach_console(
       .I_sys_clk(I_sys_clk),.I_rst_n(sys_rst_n),.I_usb_uart_rx(I_uart_rx),
       .I_arm_uart_rx(I_arm_uart_rx),.I_key1_n(1'b1),.I_key2_n(1'b1),
       .I_key4_n(I_capture_key_n),.I_sw4(1'b1),

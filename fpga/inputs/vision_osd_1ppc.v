@@ -136,7 +136,7 @@ module vision_osd_1ppc #(
             6'd11:begin mode_c0="D"; mode_c1="I"; mode_c2="L"; mode_c3="A"; end
             6'd12:begin mode_c0="C"; mode_c1="C"; mode_c2="L"; mode_c3=" "; end
             6'd13:begin mode_c0="C"; mode_c1="O"; mode_c2="N"; mode_c3="T"; end
-            6'd14:begin mode_c0="O"; mode_c1="R"; mode_c2="I"; mode_c3="G"; end
+            6'd14:begin mode_c0="H"; mode_c1="O"; mode_c2="L"; mode_c3="E"; end
             6'd15:begin mode_c0="M"; mode_c1="O"; mode_c2="T"; mode_c3="N"; end
             6'd16:begin mode_c0="P"; mode_c1="C"; mode_c2="L"; mode_c3="R"; end
             6'd17:begin mode_c0="S"; mode_c1="A"; mode_c2="T"; mode_c3=" "; end
@@ -184,23 +184,22 @@ module vision_osd_1ppc #(
             endcase
             3: case (text_col)
                 0:char_code="A"; 1:char_code="E"; 2:char_code=":";
-                3:char_code=i_mode==14?"H":"A"; 4:char_code=i_mode==14?"O":"U";
-                5:char_code=i_mode==14?"L":"T"; 6:char_code=i_mode==14?"D":"O";
-                8:char_code=i_mode==14?" ":i_ae_stable ? "O" : "R";
-                9:char_code=i_mode==14?" ":i_ae_stable ? "K" : "U";
-                10:char_code=i_mode==14?" ":i_ae_stable ? " " : "N";
+                3:char_code="A"; 4:char_code="U"; 5:char_code="T"; 6:char_code="O";
+                8:char_code=i_ae_stable ? "O" : "R";
+                9:char_code=i_ae_stable ? "K" : "U";
+                10:char_code=i_ae_stable ? " " : "N";
                 default: char_code=" ";
             endcase
             4: case (text_col)
                 0:char_code="A"; 1:char_code="W"; 2:char_code="B"; 3:char_code=":";
-                4:char_code=(i_mode==14 || (i_mode==0 && !NORMAL_IMAGE_AWB)) ? "B" : "A";
-                5:char_code=(i_mode==14 || (i_mode==0 && !NORMAL_IMAGE_AWB)) ? "Y" : "U";
-                6:char_code=(i_mode==14 || (i_mode==0 && !NORMAL_IMAGE_AWB)) ? "P" : "T";
-                7:char_code=(i_mode==14 || (i_mode==0 && !NORMAL_IMAGE_AWB)) ? "A" : "O";
-                8:char_code=(i_mode==14 || (i_mode==0 && !NORMAL_IMAGE_AWB)) ? "S" : " ";
-                9:char_code=(i_mode==14 || (i_mode==0 && !NORMAL_IMAGE_AWB)) ? "S" : (i_awb_valid ? "O" : "R");
-                10:char_code=(i_mode==14 || (i_mode==0 && !NORMAL_IMAGE_AWB)) ? " " : (i_awb_valid ? "K" : "U");
-                11:char_code=(i_mode==14 || (i_mode==0 && !NORMAL_IMAGE_AWB)) ? " " : (i_awb_valid ? " " : "N");
+                4:char_code=i_mode==0 && !NORMAL_IMAGE_AWB ? "B" : "A";
+                5:char_code=i_mode==0 && !NORMAL_IMAGE_AWB ? "Y" : "U";
+                6:char_code=i_mode==0 && !NORMAL_IMAGE_AWB ? "P" : "T";
+                7:char_code=i_mode==0 && !NORMAL_IMAGE_AWB ? "A" : "O";
+                8:char_code=i_mode==0 && !NORMAL_IMAGE_AWB ? "S" : " ";
+                9:char_code=i_mode==0 && !NORMAL_IMAGE_AWB ? "S" : (i_awb_valid ? "O" : "R");
+                10:char_code=i_mode==0 && !NORMAL_IMAGE_AWB ? " " : (i_awb_valid ? "K" : "U");
+                11:char_code=i_mode==0 && !NORMAL_IMAGE_AWB ? " " : (i_awb_valid ? " " : "N");
                 default: char_code=" ";
             endcase
             5: case (text_col)

@@ -57,11 +57,6 @@ module vision_core_4ppc #(
     reg [9:0] awb_prev_r_gain;
     reg [9:0] awb_prev_b_gain;
     reg [1:0] awb_stable_count;
-    wire reference_frame=mode_active==3'd7;
-    reg stats_reference;
-    always @(posedge i_clk or negedge i_rst_n)
-        if(!i_rst_n)stats_reference<=0;
-        else if(i_sof && i_valid)stats_reference<=reference_frame;
 
     wire [9:0] awb_r_step = (o_awb_r_gain_q8 >= awb_prev_r_gain)
                              ? (o_awb_r_gain_q8-awb_prev_r_gain)
@@ -71,15 +66,15 @@ module vision_core_4ppc #(
                              : (awb_prev_b_gain-o_awb_b_gain_q8);
 
     awb_controller u_awb_ctrl(
-        .i_clk(i_clk),.i_rst_n(i_rst_n),.i_stats_valid(stats_valid && !reference_frame && !stats_reference),
+        .i_clk(i_clk),.i_rst_n(i_rst_n),.i_stats_valid(stats_valid),
         .i_r_sum(r_sum),.i_g_sum(g_sum),.i_b_sum(b_sum),.i_pixel_count(awb_count),
         .o_r_gain_q8(o_awb_r_gain_q8),.o_b_gain_q8(o_awb_b_gain_q8),
         .o_gain_valid(awb_gain_valid)
     );
 
     ae_controller #(.EXP_INIT(AE_EXP_INIT),.EXP_MAX(AE_EXP_MAX),.GAIN_MAX(AE_GAIN_MAX)) u_ae_ctrl(
-        .i_clk(i_clk),.i_rst_n(i_rst_n),.i_enable(!reference_frame),
-        .i_stats_valid(stats_valid && !stats_reference),.i_luma_sum(luma_sum),.i_luma_count(luma_count),
+        .i_clk(i_clk),.i_rst_n(i_rst_n),.i_enable(1'b1),
+        .i_stats_valid(stats_valid),.i_luma_sum(luma_sum),.i_luma_count(luma_count),
         .o_exposure(o_exposure),.o_gain_index(o_gain_index),
         .o_update(o_ae_update),.o_stable(o_ae_stable)
     );
@@ -93,8 +88,7 @@ module vision_core_4ppc #(
     reg [95:0] input_rgb_d1;
     awb_apply_4ppc u_awb_apply(
         .i_clk(i_clk),.i_rst_n(i_rst_n),.i_sof(i_sof),.i_valid(i_valid),.i_rgb(i_rgb),
-        .i_r_gain_q8(i_mode==3'd7 ? 10'd256 : o_awb_r_gain_q8),
-        .i_b_gain_q8(i_mode==3'd7 ? 10'd256 : o_awb_b_gain_q8),
+        .i_r_gain_q8(o_awb_r_gain_q8),.i_b_gain_q8(o_awb_b_gain_q8),
         .o_sof(awb_sof),.o_valid(awb_valid),.o_rgb(awb_rgb)
     );
 
